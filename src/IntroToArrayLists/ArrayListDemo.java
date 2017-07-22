@@ -22,8 +22,8 @@ public class ArrayListDemo {
 		System.out.println("\n");
 		
 		//iterating through list with for-each loop
-		for(String s : names){
-			System.out.println(s);
+		for(String banansa : names){
+			System.out.println(banansa);
 		}
 		System.out.println("\n");
 		
