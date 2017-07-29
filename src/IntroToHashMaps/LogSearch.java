@@ -16,7 +16,7 @@ public class LogSearch implements ActionListener {
 	JButton butt= new JButton();
 	JButton butt2= new JButton();
 	JButton butt3= new JButton();
-	HashMap<Integer, String> SquareRoot = new HashMap<Integer, String>();
+	HashMap<Integer, String> IDList = new HashMap<Integer, String>();
 	public static void main(String[] args) {
 		LogSearch log= new LogSearch();
 		log.run();
@@ -46,6 +46,8 @@ public void run(){
 		butt3.setText("Remove Entry");
 		but.addActionListener(this);
 		butt.addActionListener(this);
+		butt2.addActionListener(this);
+		butt3.addActionListener(this);
 		frame.pack();
 		
 	}
@@ -81,8 +83,42 @@ public void run(){
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	if (e.getSource().equals(but)) {
+		
 		String ID=JOptionPane.showInputDialog("Enter an ID # that you want to add");
 		String name= JOptionPane.showInputDialog("Now enter a name the you want to add");
+		int id= Integer.parseInt(ID);
+		IDList.put(id, name);
 	}
+	else if(e.getSource().equals(butt)){
+		String Id=JOptionPane.showInputDialog("Enter the ID of a person");
+		int person=Integer.parseInt(Id);
+		
+		
+	
+		if(IDList.containsKey(person)){
+			JOptionPane.showMessageDialog(null, "This is the ID number of " + IDList.get(person));
+			
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "This ID does not exist");
+		}
+		
+	}
+	else if (e.getSource().equals(butt2)) {
+	
+		String s="";
+		for (Integer i  : IDList.keySet()) {
+		String ss= Integer.toString(i);
+					s+=" ID: "+ss;
+					s+=" Name: "+IDList.get(i)+" \n";
+		}
+		JOptionPane.showMessageDialog(null, s);
+		
+		
+	}
+	else if(e.getSource().equals(butt3)){
+		
+	}
+	
 }
 }
