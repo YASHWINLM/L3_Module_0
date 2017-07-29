@@ -1,29 +1,35 @@
 package IntroToArrayLists;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class GuestBook {
+public class GuestBook implements ActionListener {
+	JFrame frame= new JFrame();
+	JPanel panel= new JPanel();
+	JButton but= new JButton();
+	JButton butt= new JButton();
+	ArrayList<String> names = new ArrayList<String>();
+	
 	public static void main(String[] args) {
 		GuestBook book= new GuestBook();
 		book.run();
 	}
 	
 	public void run(){
-		ArrayList<String> names = new ArrayList<String>();
 		
-		names.add(" Bob Banders");
-		names.add("Sandy Summers");
-		names.add("Greg Ganders");
-		names.add("  Donny Doners");
-		JFrame frame= new JFrame();
-		frame.pack();
-		JPanel panel= new JPanel();
-		JButton but= new JButton();
-		JButton butt= new JButton();
+//		names.add(" Bob Banders");
+//		names.add("Sandy Summers");
+//		names.add("Greg Ganders");
+//		names.add("  Donny Doners");
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		frame.setVisible(true);
 		panel.setVisible(true);
 		but.setVisible(true);
@@ -31,12 +37,40 @@ public class GuestBook {
 		frame.add(panel);
 		panel.add(but);
 		panel.add(butt);
+		
 		but.setText("Add Name ");
 		butt.setText("View Names");
-		
+		but.addActionListener(this);
+		butt.addActionListener(this);
+		frame.pack();
 		
 	}
 	// Create a GUI with two buttons. One button reads "Add Name" and the other button reads "View Names".
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if (e.getSource().equals(butt)) {
+			viewNames();
+		}
+		 if (e.getSource().equals(but)) {
+			String addNames=JOptionPane.showInputDialog("Add a name");
+			names.add(addNames);
+		}
+		
+		
+	}
+
+	private void viewNames() {
+		String List= " ";
+		for(String banansa : names){
+			
+			List+=banansa+" ";
+			
+		}
+		JOptionPane.showMessageDialog(null, List);
+	}
 	
 	// When the add name button is clicked, display an input dialog that asks the user to enter a name. Add
 	// that name to an ArrayList. When the "View Names" button is clicked, display a message dialog that displays

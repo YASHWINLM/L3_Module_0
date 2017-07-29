@@ -1,6 +1,54 @@
 package IntroToHashMaps;
 
-public class LogSearch {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class LogSearch implements ActionListener {
+	JFrame frame= new JFrame();
+	JPanel panel= new JPanel();
+	JButton but= new JButton();
+	JButton butt= new JButton();
+	JButton butt2= new JButton();
+	JButton butt3= new JButton();
+	HashMap<Integer, String> SquareRoot = new HashMap<Integer, String>();
+	public static void main(String[] args) {
+		LogSearch log= new LogSearch();
+		log.run();
+	}
+	
+public void run(){
+		
+//	
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.setVisible(true);
+		panel.setVisible(true);
+		but.setVisible(true);
+		butt.setVisible(true);
+		butt2.setVisible(true);
+		butt3.setVisible(true);
+		frame.add(panel);
+		panel.add(but);
+		panel.add(butt);
+		panel.add(butt2);
+		panel.add(butt3);
+		
+		but.setText("Add Entry ");
+		butt.setText("Search By ID");
+		butt2.setText("View List");
+		butt3.setText("Remove Entry");
+		but.addActionListener(this);
+		butt.addActionListener(this);
+		frame.pack();
+		
+	}
   /* 
 	 * Crate a HashMap of Integers for the keys and Strings for the values.
 	 * Create a GUI with three buttons. 
@@ -28,4 +76,13 @@ public class LogSearch {
 	 * 				is not in the list. 
 	 *
 	 * */
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	if (e.getSource().equals(but)) {
+		String ID=JOptionPane.showInputDialog("Enter an ID # that you want to add");
+		String name= JOptionPane.showInputDialog("Now enter a name the you want to add");
+	}
+}
 }
