@@ -112,12 +112,22 @@ public void actionPerformed(ActionEvent e) {
 					s+=" ID: "+ss;
 					s+=" Name: "+IDList.get(i)+" \n";
 		}
+		System.out.println("hello");
 		JOptionPane.showMessageDialog(null, s);
 		
 		
 	}
 	else if(e.getSource().equals(butt3)){
-		
+		String id=JOptionPane.showInputDialog("Enter the ID of the person that you want to remove");
+		int person=Integer.parseInt(id);
+		IDList.remove(person);
+		if(IDList.containsKey(person)){
+			JOptionPane.showMessageDialog(null, "ID removed");
+			
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "This ID does not exist");
+		}
 	}
 	
 }

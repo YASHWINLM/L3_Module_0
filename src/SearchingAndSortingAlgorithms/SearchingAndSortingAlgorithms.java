@@ -19,7 +19,11 @@ public class SearchingAndSortingAlgorithms {
 		List<String> eggs = Arrays.asList(new String[] { "whole", "whole", "whole", "whole", "cracked", "whole", "whole", "whole",
 				"cracked", "whole", "whole", "whole" });
 		assertEquals(4, Algorithms.findBrokenEgg(eggs));
+		List<String> eggs2 = Arrays.asList(new String[] { "whole", "whole", "whole", "whole", "whole", "whole", "whole", "whole",
+				"cracked", "whole", "whole", "whole" });
+		assertEquals(7, Algorithms.findBrokenEgg(eggs));
 	}
+	
 
 	/* 2. Count how many oysters contain pearls. */
 //	@Test
