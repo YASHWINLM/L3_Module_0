@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 public class Algorithms {
 	public static int findBrokenEgg(List<String> eggs) {
 		int i=0;
@@ -83,7 +85,35 @@ public class Algorithms {
 		Collections.sort(results);
 		return results;
 	}
+
+	public static Object sortDNA(List<String> unsortedSequences) {
+		// TODO Auto-generated method stub
+		int swap=0;
+		do {
+			swap=0;
+			for (int i = 0; i < unsortedSequences.size()-1; i++) {
+				
+				if (unsortedSequences.get(i).length()>unsortedSequences.get(i+1).length()) {
+					String temp= unsortedSequences.get(i);
+					unsortedSequences.set(i, unsortedSequences.get(i+1));
+					unsortedSequences.set( i+1, temp);
+				swap+=1;
+				}
+			
+			}
+		} while (swap!=0);
+		return unsortedSequences;
+		}
+
+	public static List<String> sortWords(List<String> words) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < words.size()-1; i++) {
+			words.get(i).compareTo(words.get(i+1));
+		}
+		return words;
+	}
+		
+	}
 	
 	//Add other methods here
 	
-}
