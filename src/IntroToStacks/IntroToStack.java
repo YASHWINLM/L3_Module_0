@@ -24,13 +24,19 @@ public class IntroToStack {
 		int Num2=Integer.parseInt(num2);
 		//4. Pop all the elements off of the Stack. Every time a double is popped that is
 		//   between the two numbers entered by the user, print it to the screen.
-		for (int i = 0; i < flavors.size(); i++) {
+		int x= flavors.size();
+		for (int i = 0; i < x; i++) {
 			
-			double x=flavors.pop();
-			if(x<Num2&& x>Num) {
-				System.out.println(x);
+			double y=flavors.pop();
+			if(y<Num2&& y>Num) {
+				System.out.println(y);
 				
 			}
+			
+		}
+		if(flavors.isEmpty()) {
+			System.out.println("empty");
+			
 		}
 		//   EXAMPLE:
 		//   NUM 1: 65

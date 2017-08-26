@@ -1,6 +1,44 @@
 package IntroToStacks;
 
-public class TextUndoRedo {
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Stack;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class TextUndoRedo implements KeyListener {
+	JFrame frame= new JFrame();
+	JPanel panel= new JPanel();
+	JLabel label= new JLabel();
+	Stack<Character> letters = new Stack<Character>();
+	public static void main(String[] args) {
+		TextUndoRedo text= new TextUndoRedo();
+		text.run();
+	}
+	private void run() {
+		// TODO Auto-generated method stub
+		frame.setVisible(true);
+		panel.setVisible(true);
+		label.setVisible(true);
+		frame.add(panel);
+		panel.add(label);
+		frame.addKeyListener(this);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.pack();
+		
+
+	}
+	public String getStack() {
+		String s ="" ;
+		for (int i = letters.size()-1; i >=0; i--) {
+		
+			s+=letters.elementAt(i);
+			
+		}
+		return s;
+	}
 	/* 
 	 * Create a JFrame with a JPanel and a JLabel.
 	 * 
@@ -13,5 +51,34 @@ public class TextUndoRedo {
 	 * off the Stack and added back to the JLabel.
 	 * 
 	 * */
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+		
+		
+	
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println(e.getKeyCode());
+	if(e.getKeyCode()==8) {
+			
+			System.out.println(letters.pop());
+		}
+		else {
+			char f=e.getKeyChar();
+			letters.push(f);
+		}
+		String s=getStack();
+		label.setText(s);
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
