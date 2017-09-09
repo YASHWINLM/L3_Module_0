@@ -13,6 +13,7 @@ public class TextUndoRedo implements KeyListener {
 	JPanel panel= new JPanel();
 	JLabel label= new JLabel();
 	Stack<Character> letters = new Stack<Character>();
+	Stack<Character> Undone = new Stack<Character>();
 	public static void main(String[] args) {
 		TextUndoRedo text= new TextUndoRedo();
 		text.run();
@@ -32,7 +33,7 @@ public class TextUndoRedo implements KeyListener {
 	}
 	public String getStack() {
 		String s ="" ;
-		for (int i = letters.size()-1; i >=0; i--) {
+		for (int i = 0; i <letters.size(); i++) {
 		
 			s+=letters.elementAt(i);
 			
@@ -65,12 +66,21 @@ public class TextUndoRedo implements KeyListener {
 		System.out.println(e.getKeyCode());
 	if(e.getKeyCode()==8) {
 			
-			System.out.println(letters.pop());
+			char c=letters.pop();
+			Undone.push(c);
+			
 		}
-		else {
+	else if(e.getKeyCode()==27) {
+		char c=Undone.pop();
+		letters.push(c);
+	}
+		else  {
 			char f=e.getKeyChar();
 			letters.push(f);
 		}
+		
+			
+		
 		String s=getStack();
 		label.setText(s);
 		
