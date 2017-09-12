@@ -19,6 +19,7 @@ public class GuestBook implements ActionListener {
 	public static void main(String[] args) {
 		GuestBook book= new GuestBook();
 		book.run();
+		
 	}
 	
 	public void run(){
